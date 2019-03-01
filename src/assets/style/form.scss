@@ -1,0 +1,15 @@
+.form-container {
+  min-width: 460px;
+  overflow: auto;
+  border-radius: 10px;
+  border: 1px solid $light-grey;
+  padding: 30px;
+  margin-right: 20px;
+  .form-container-error {
+    color: red;
+  }
+}
+
+.form-container:hover {
+  box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5);
+}

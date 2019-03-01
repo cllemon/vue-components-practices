@@ -1,0 +1,85 @@
+/deep/ .CodeMirror {
+  height: 480px;
+}
+
+.show-wraper {
+  padding-left: 20px;
+  &-item {
+    .wraper-item-tips {
+      padding-bottom: 20px;
+      h2,
+      h3 {
+        color: $light-black;
+      }
+      h2:hover,
+      h3:hover {
+        opacity: 0.5;
+      }
+      &--content {
+        font-size: 15px;
+        color: $light-black;
+        .content-a {
+          color: $primary;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+    .wraper-item-img {
+      width: 1000px;
+      height: 100%;
+    }
+    .wraper-item-preview {
+      display: flex;
+      max-height: 550px;
+      overflow: auto;
+      padding: 10px 0;
+      min-width: 1250px;
+      &--code {
+        width: 600px;
+        overflow: auto;
+        background: $code-bg;
+        border-radius: 10px;
+        padding: 14px;
+        animation: openCollapse 1.4s alternate;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        .code-tabs {
+        }
+      }
+      &--code:hover {
+        box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5);
+      }
+      &--toggle {
+        width: 20px;
+        height: 100%;
+        overflow: hidden;
+        padding: 0 4px;
+        border: 1px solid $light-grey;
+        border-radius: 4px;
+        position: relative;
+        color: $light-grey;
+        border-left-color: $code-bg;
+        .toggle-text {
+          position: absolute;
+          top: 40%;
+          padding: 0 2px;
+        }
+      }
+      &--toggle:hover {
+        box-shadow: 0 0 8px 0 rgba(188, 197, 219, 0.6), 0 2px 4px 0 rgba(189, 202, 236, 0.5);
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+  }
+}
+
+@keyframes openCollapse {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 600px;
+  }
+}

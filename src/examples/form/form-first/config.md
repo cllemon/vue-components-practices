@@ -306,9 +306,7 @@ export const formConfig = (Vue) => ({
             }).then(() => {
               Vue.$message({
                 type: 'success',
-                message: `恭喜你，提交成功成功! - 提交数据为：${JSON.stringify(
-                  Vue.config.formRule.props.model,
-                )}`,
+                message: '提交信息：' + JSON.stringify(Vue.config.formRule.props.model),
               });
             });
           }

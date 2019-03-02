@@ -7,7 +7,6 @@ export const formConfig = (Vue) => ({
   formRule: {
     props: {
       model: {
-        name: '',
         date: '',
         distortCascade: {
           first: '',
@@ -21,7 +20,7 @@ export const formConfig = (Vue) => ({
         region: '',
       },
       rules: {
-        name: [{ required: true, message: '请输入活动名称' }],
+        region: [{ required: true, message: '请选择活动区域' }],
         date: [{ type: 'date', required: true, message: '请选择活动日期' }],
       },
       'label-width': '100px',
@@ -31,18 +30,43 @@ export const formConfig = (Vue) => ({
   formItemsRule: [
     {
       props: {
-        label: '活动名称',
-        prop: 'name',
+        label: '活动区域',
+        prop: 'region',
       },
       slot: {
-        name: 'el-input',
+        name: 'el-select',
         props: {
-          placeholder: '请输入活动名称',
+          placeholder: '请选择活动区域',
+          clearable: true,
         },
         events: {
           change: (val) => {
-            console.log(`活动名称：${val}, 组件实列：${Vue}`);
+            console.log('活动区域：', val);
           },
+        },
+        // 这里 枚举列表 - 对应 key 值 和 element-ui 保持一致，不去人为修改，保证 API 和 其一致。
+        // 常见业务场景：可能自己的接口数据key和其不一致，自己可以实现一个 formatter()实现。
+        slot: {
+          name: 'el-option',
+          list: [
+            {
+              label: '西瓜',
+              value: 'watermelon',
+            },
+            {
+              label: '柠檬',
+              value: 'lemon',
+            },
+            {
+              label: '柑橘',
+              value: 'citrus',
+              disabled: true,
+            },
+            {
+              label: '芒果',
+              value: 'mango',
+            },
+          ],
         },
       },
     },
@@ -58,7 +82,7 @@ export const formConfig = (Vue) => ({
         },
         events: {
           change: (val) => {
-            console.log(`活动日期：${val}, 组件实列：${Vue}`);
+            console.log('活动日期：' + val);
           },
         },
       },
@@ -210,50 +234,6 @@ export const formConfig = (Vue) => ({
         },
       },
     },
-    {
-      props: {
-        label: '活动区域',
-        prop: 'region',
-      },
-      slot: {
-        name: 'el-select',
-        props: {
-          placeholder: '请选择活动区域',
-          clearable: true,
-        },
-        events: {
-          change: (val) => {
-            console.log('活动区域：', val);
-          },
-        },
-        // 这里 枚举列表 - 对应 key 值 和 element-ui 保持一致，
-        // 不去人为修改，保证 API 和 其一致。
-        // 常见业务场景：可能自己的接口数据key和其不一致，
-        // 自己可以实现一个 formatter()实现。
-        slot: {
-          name: 'el-option',
-          list: [
-            {
-              label: '西瓜',
-              value: 'watermelon',
-            },
-            {
-              label: '柠檬',
-              value: 'lemon',
-            },
-            {
-              label: '柑橘',
-              value: 'citrus',
-              disabled: true,
-            },
-            {
-              label: '芒果',
-              value: 'mango',
-            },
-          ],
-        },
-      },
-    },
   ],
   formOperateRule: [
     {
@@ -298,9 +278,7 @@ export const formConfig = (Vue) => ({
             }).then(() => {
               Vue.$message({
                 type: 'success',
-                message: `恭喜你，提交成功成功! - 提交数据为：${JSON.stringify(
-                  Vue.config.formRule.props.model,
-                )}`,
+                message: '提交成功：' + JSON.stringify(Vue.config.formRule.props.model),
               });
             });
           }
@@ -311,18 +289,19 @@ export const formConfig = (Vue) => ({
 });
 
 /**
- * 你也可以在外部为你封装的复杂组件添加对应的校验提示信息，只关心其内部的值状态。
+ * 为你封装的复杂组件添加对应的提示信息
+ * 思路：内部 暴露 组件 实例，在外部表单提交时调用内部校验方法即可！
  */
-const validateTips = (rule, value, callback) => {
-  if (!value.first && !value.second && !value.third) {
-    callback(new Error('请选择一级类目（表单提供）'));
-  }
-  if (value.first && !value.second && !value.third) {
-    callback(new Error('请选二级类目（表单提供）'));
-  }
-  if (value.first && value.second && !value.third) {
-    callback(new Error('请选择三级类目（表单提供）'));
-  }
-  callback();
-};
+// const validateTips = (rule, value, callback) => {
+//   if (!value.first && !value.second && !value.third) {
+//     callback(new Error('请选择一级类目（表单提供）'));
+//   }
+//   if (value.first && !value.second && !value.third) {
+//     callback(new Error('请选二级类目（表单提供）'));
+//   }
+//   if (value.first && value.second && !value.third) {
+//     callback(new Error('请选择三级类目（表单提供）'));
+//   }
+//   callback();
+// };
 ```

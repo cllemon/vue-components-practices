@@ -25,7 +25,7 @@ import NoForm from '@/components/no-form/index.vue';
 import CodeToggle from '@/components/basic-widgets/code-toggle.vue';
 import LiveEditPreview from '@/components/basic-widgets/live-edit-preview.vue';
 import { executeFunctionBlock } from '@/plugins/utils.js';
-import { formConfig } from './index.eg.js';
+import { formConfig } from './index.js';
 import MarkdownConfig from './config.md';
 import MarkdownVue from './vue.md';
 

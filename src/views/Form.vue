@@ -1,6 +1,5 @@
 <template>
   <div class="show-wraper">
-    tips: 代码在编译时被压缩，试一试可更改，目前暂时没时间解决自行编辑查看效果！
     <section class="show-wraper-item">
       <div class="wraper-item-tips">
         <h2>表单配置</h2>

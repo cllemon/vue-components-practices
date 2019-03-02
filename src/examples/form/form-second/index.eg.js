@@ -2,7 +2,7 @@
  * 整体表单配置项
  */
 
-export const formConfig = (Vue) => ({
+export const formConfig = `(Vue) => ({
   formRule: {
     props: {
       model: {
@@ -81,7 +81,7 @@ export const formConfig = (Vue) => ({
         },
         events: {
           change: (val) => {
-            console.log(`活动日期：${val}, 组件实列：${Vue}`);
+            console.log('活动日期：' + val);
           },
         },
       },
@@ -277,9 +277,7 @@ export const formConfig = (Vue) => ({
             }).then(() => {
               Vue.$message({
                 type: 'success',
-                message: `恭喜你，提交成功成功! - 提交数据为：${JSON.stringify(
-                  Vue.config.formRule.props.model,
-                )}`,
+                message: '提交成功：' + JSON.stringify(Vue.config.formRule.props.model),
               });
             });
           }
@@ -287,7 +285,7 @@ export const formConfig = (Vue) => ({
       },
     },
   ],
-});
+})`;
 
 /**
  * 为你封装的复杂组件添加对应的提示信息

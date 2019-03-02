@@ -1,8 +1,7 @@
 /**
  * 整体表单配置项
  */
-export const formConfig = (Vue) => ({
-  // 注： 这里实时编辑器做了一层转义，具体请看 配置代码
+export const formConfig = `(Vue) => ({
   // 表单规则
   formRule: {
     props: {
@@ -306,9 +305,7 @@ export const formConfig = (Vue) => ({
             }).then(() => {
               Vue.$message({
                 type: 'success',
-                message: `恭喜你，提交成功成功! - 提交数据为：${JSON.stringify(
-                  Vue.config.formRule.props.model,
-                )}`,
+                message: '提交信息：' + JSON.stringify(Vue.config.formRule.props.model),
               });
             });
           }
@@ -316,4 +313,4 @@ export const formConfig = (Vue) => ({
       },
     },
   ],
-});
+})`;

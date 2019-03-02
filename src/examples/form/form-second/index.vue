@@ -24,7 +24,8 @@
 import NoForm from '@/components/no-form/index.vue';
 import CodeToggle from '@/components/basic-widgets/code-toggle.vue';
 import LiveEditPreview from '@/components/basic-widgets/live-edit-preview.vue';
-import { formConfig } from './index.js';
+import { executeFunctionBlock } from '@/plugins/utils.js';
+import { formConfig } from './index.eg.js';
 import MarkdownConfig from './config.md';
 import MarkdownVue from './vue.md';
 import emitter from '@/mixins/emitter';
@@ -42,7 +43,7 @@ export default {
 
   data() {
     return {
-      config: formConfig(this),
+      config: executeFunctionBlock(formConfig)(this),
       configStr: formConfig,
       errorStr: null,
       dynamicSelectInternalValidateResult: false,
@@ -56,8 +57,7 @@ export default {
     configStr(val, oldVal) {
       try {
         if (val !== oldVal) {
-          const result = new Function(`return ${val}`)();
-          const options = result(this);
+          const options = executeFunctionBlock(val)(this);
           this.config = options;
           this.errorStr = null;
           if (this.$refs.noForm && this.$refs.noForm.$children && this.$refs.noForm.$children[0]) {

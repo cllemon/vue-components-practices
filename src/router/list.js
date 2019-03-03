@@ -6,7 +6,7 @@ const About = () => import('../views/About.vue');
 export default [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/form',
   },
   {
     path: '/home',

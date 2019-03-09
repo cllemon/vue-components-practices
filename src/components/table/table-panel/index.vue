@@ -122,8 +122,8 @@ export default {
       return this.isObject(component) && Object.keys(component).length > 0;
     },
     formatter(row, rowRule) {
-      return row.formatter
-        ? row.formatter(row[rowRule.prop], row)
+      return rowRule.formatter
+        ? rowRule.formatter(row[rowRule.prop], row)
         : row[rowRule.prop];
     },
     getOperateList(index) {

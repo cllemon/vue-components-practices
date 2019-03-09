@@ -45,7 +45,7 @@ const createOperatePageJump = (Vue, label = '操作 - 跳转') => {
 /**
  * 筛选不同行对应不同操作
  */
-const filterOperateList = (Vue) => {
+const operateList = (Vue) => {
   return (row) => {
     const list = [
       createOperatePageJump(Vue, '补卡')
@@ -125,7 +125,7 @@ export const tableConfig = (Vue) => {
     ],
 
     // 行操作集合 支持 Function | Array
-    rowOperateList: filterOperateList(Vue),
+    rowOperateList: operateList(Vue),
   };
 };
 

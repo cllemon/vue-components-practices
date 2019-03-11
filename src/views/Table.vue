@@ -22,7 +22,7 @@
     <section class="show-wraper-item">
       <div class="wraper-item-tips">
         <h3>复杂业务场景</h3>
-        <div class="wraper-item-tips--content">筛选，表格，分页为一体的业务场景。( 需要完善修饰，只是暂时做个壳... )</div>
+        <div class="wraper-item-tips--content">筛选，表格，分页为一体的业务场景。</div>
       </div>
       <table-second></table-second>
     </section>

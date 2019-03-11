@@ -2,8 +2,7 @@
   <el-table ref="Table"
             style="width: 100%"
             v-bind="tableProps"
-            v-on="tableEvents"
-            v-if="isRenderTable">
+            v-on="tableEvents">
     <el-table-column v-if="isPresenceSelectionColumnProps"
                      v-bind="selectionColumnProps"
                      type="selection">

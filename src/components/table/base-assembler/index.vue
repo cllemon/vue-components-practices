@@ -1,26 +1,18 @@
 <!-- 这里暴露出一个基础的 带 顶部操作栏 表格页 底部分页 的基础类组件 -->
-
 <template>
   <section class="base-assembler"
            v-loading="isLoading">
-
-    <!-- 筛选面板 -->
     <filter-panel ref="filterPanel"
                   v-model="filterSourceModel"
                   v-bind="filterPanelProps"
-                  @remotePullData="onRemotePullData">
+                  @remotePullData="handlerOrForwardingQueryParams">
     </filter-panel>
-
-    <!-- 表格面板 -->
     <table-panel v-bind="tablePanelProps"></table-panel>
-
-    <!-- 分页面板 -->
     <pagination-panel v-model="pageOptions"
-                      v-bind="paginationPanelProps">
-                      <!-- @pageSizeChange="onPageSizeChange"
-                      @currentPageChange="onCurrentPageChange"> -->
+                      v-bind="paginationPanelProps"
+                      @pageSizeChange="onPageSizeChange"
+                      @currentPageChange="onCurrentPageChange">
     </pagination-panel>
-
   </section>
 </template>
 
@@ -36,30 +28,24 @@ export default {
     tablePanel,
     paginationPanel,
   },
+
   props: {
-    /**
-     * 渲染对应业务配置表
-     */
     config: {
       type: Function,
       required: true,
     },
   },
+
   data() {
     return {
       isLoading: false,
-      modelRule: this.config(this), // 配置解析 - 获取整体配置表
-
-      filterSourceModel: {}, // 筛选器数据源模型
-
-      // entryDataList: [], // 表格数据源
+      modelRule: this.config(this),
+      filterSourceModel: {},
+      totalCount: 100,
       pageOptions: {
-        currentPage: 1, // 分页器当前页
-        pageSize: 10, // 分页器页尺寸
+        currentPage: 1,
+        pageSize: 5,
       },
-      // totalCount: 0, // 总条数
-      // selection: [], // 存行选择信息
-      // sortModel: {}, // 排序信息
     };
   },
 
@@ -79,25 +65,17 @@ export default {
       }
       return {};
     },
-
-    /**
-     * 表格面板下发配置
-     */
     tablePanelProps() {
       if (this.modelRule && this.modelRule.table) {
         return this.modelRule.table;
       }
       return {};
     },
-
-    /**
-     * 分页面板下发数据
-     */
     paginationPanelProps() {
       if (this.modelRule && this.modelRule.pagination) {
         return {
-          totalCount: 2,
-          pageSizes: this.modelRule.table.pageSizes,
+          totalCount: this.totalCount,
+          pageSizes: this.modelRule.pagination.pageSizes,
         };
       }
       return {};
@@ -124,30 +102,44 @@ export default {
       return [];
     },
 
-    onRemotePullData() {
-      const result = this.$createElement('div', { style: 'color: red; width: 300px; overflow: auto;' }, JSON.stringify(this.filterSourceModel))
-      this.$notify({
-        title: '当前筛选数据',
-        message: result,
-      })
-    }
-
-    // handlerQueryParams() {
-    //   return {
-    //     page: this.pageOptions.currentPage, // 当前页
-    //     count: this.pageOptions.pageSize, // 页尺寸
-    //     query: this.filterObj, // 筛选参数
-    //     sort: this.sortModel, // 排序参数
-    //     selection: this.selection, // 行选结果
-    //   };
-    // },
-
     /**
      * 拉取数据列表
      * 这里取数据 - 接口需要规范好 否则拿不到数据源
      */
-  //   async getDataMethods(queryParams) {
-  //   },
+    async getDataMethods(queryParams) {
+      try {
+        this.isLoading = true;
+        const { data, total } = await this.modelRule.getListToRequest(queryParams);
+        this.totalCount = total;
+        this.modelRule.table.tableProps.data = data;
+        // 这里可以暴露一个钩子给配置去处理接口数据
+      } catch (error) {
+        console.log(' base-assembler: 拉取数据列表错误：', error);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+
+    handlerOrForwardingQueryParams(init = true) {
+      const API = {
+        page: init ? 1 : this.pageOptions.currentPage,
+        count: this.pageOptions.pageSize,
+        query: this.filterSourceModel,
+      }
+      this.getDataMethods(API);
+    },
+
+    onPageSizeChange() {
+      this.handlerOrForwardingQueryParams();
+    },
+
+    onCurrentPageChange() {
+      this.handlerOrForwardingQueryParams(false);
+    }
+  },
+
+  mounted() {
+    this.handlerOrForwardingQueryParams();
   },
 };
 

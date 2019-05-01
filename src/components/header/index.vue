@@ -10,7 +10,9 @@
       <div class="nav__content">
         <a :href="url"
            class="content__github">
-          <i class="el-icon-share content__icon" />
+          <img alt="Vue logo"
+               class="content__icon"
+               src="../../assets/images/github.png">
         </a>
       </div>
     </section>
@@ -82,7 +84,8 @@ export default {
       .content__github {
       }
       .content__icon {
-        font-size: 30px;
+        width: 30px;
+        height: 30px;
         color: #9e9e9e;
         animation: rotating 10s linear infinite;
       }

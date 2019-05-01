@@ -1,37 +1,39 @@
 # vue-components-practices
 
-Some practices based on vue are configured to generate components that are satisfied with the relevant business scenarios.
+基于 vue 组件的封装实践, 集中展示了一些**通过配置化生成**、**纯 UI 组件**、**满足相关业务场景** 的组件。
 
-## Form-Configuration
+### 说明
 
-Mainly based on elements-ui => el-form, a set of configurable generated form packaging. [Go ahead and match it](https://cllemon.github.io/vue-components-practices/)
+> 项目起因，纯粹是为了沉淀曾经写过或是曾遇到过的一些场景和好的组件封装案例。
 
-<img src="https://github.com/cllemon/vue-components-practices/blob/master/src/assets/images/form.jpg" width="820" height= "420" />
+> 以上所有组件封装，均基于 [Vue.js](https://cn.vuejs.org/)
 
-## Table-Configuration
+> 该展示集合，将陆续整理发布，持续更新；如果觉得对您有帮助，欢迎 star O(∩_∩)O~~。
 
-Mainly based on elements-ui => el-table, a set of configurable generated form packaging. [Go ahead and match it](https://cllemon.github.io/vue-components-practices/)
+### 图例
 
-<img src="https://github.com/cllemon/vue-components-practices/blob/master/src/assets/images/table.png" width="820" height= "420" />
+**[「 preview 」](https://cllemon.github.io/vue-components-practices/)**
 
-## Project setup
+![pages](./public/pages.png)
+
+### Project setup
 
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
 
 ```
 yarn run build
 ```
 
-### Customize configuration
+#### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).

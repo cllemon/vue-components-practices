@@ -16,13 +16,13 @@
           <el-button type="primary"
                      icon="el-icon-edit"
                      size="mini"
-                     @click="showCode(options.value)">
+                     @click="showCode(options)">
             查看代码
           </el-button>
           <el-button type="primary"
                      icon="el-icon-document"
                      size="mini"
-                     @click="showCode(options.value)">
+                     @click="showCode(options)">
             查看文档
           </el-button>
         </div>
@@ -64,8 +64,12 @@ export default {
       done();
     },
 
-    showCode(name) {
-      console.log(name);
+    showCode(options) {
+      window.open(
+        `https://github.com/cllemon/vue-components-practices/edit/master/src/package/${
+          options.componentName
+        }/index.vue`,
+      );
     },
   },
 };

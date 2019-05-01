@@ -2,13 +2,13 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router/index';
 import './plugins/element.js';
-import DynamicSelect from './package/dynamic-select/index';
-import TableColumnImages from './package/table-column-images/index';
+import { registeredComponent } from './plugins/utils';
+import Packages from './package/index';
+import Examples from './examples/index';
 
 Vue.config.productionTip = false;
-
-Vue.use(DynamicSelect);
-Vue.use(TableColumnImages);
+registeredComponent(Vue, Packages);
+registeredComponent(Vue, Examples);
 
 new Vue({
   router,

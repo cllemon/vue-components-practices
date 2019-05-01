@@ -68,7 +68,7 @@ export default {
 
   props: {
     value: {
-      required: true,
+      required: false,
       default: () => ({}),
     },
     list: {

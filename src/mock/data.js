@@ -1,0 +1,101 @@
+export const classification = [
+  {
+    label: '表格',
+    value: 'table',
+    children: [
+      {
+        label: '配置化生成 - 纯表格',
+        value: 'pure-table',
+        image_url: 'pure-table',
+        describtion: '适用于简单的自定义配置化生成表格展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: false,
+      },
+      {
+        label: '配置化生成 - 可筛选表格',
+        value: 'filter-table',
+        describtion: '适用于自定义配置化生成可筛选表格展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: true,
+      },
+      {
+        label: '配置化生成 - 可筛选分页表格',
+        value: 'filter-paging-table',
+        image_url: 'filter-paging-table',
+        describtion: '适用于自定义配置化生成可筛选分页为一体的表格展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: false,
+      },
+    ],
+  },
+  {
+    label: '表单',
+    value: 'form',
+    children: [
+      {
+        label: '配置化生成 - 静态表单',
+        value: 'static-form',
+        componentName: 'no-form',
+        image_url: 'static-form',
+        describtion: '适用于简单的自定义配置化生成表单的展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: false,
+      },
+      {
+        label: '配置化生成 - 动态表单',
+        value: 'dynamic-form',
+        image_url: 'dynamic-form',
+        componentName: 'no-form',
+        describtion: '适用于自定义配置化生成复杂动态表单的展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: false,
+      },
+      {
+        label: 'dynamic-select',
+        value: 'dynamic-select',
+        describtion: '适用于自定义配置化生成复杂动态表单的展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: true,
+      },
+    ],
+  },
+  {
+    label: '信息展示',
+    value: 'form',
+    children: [
+      {
+        label: '图片预览',
+        value: 'preview-image',
+        describtion: '适用于简单的图片预览的展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: true,
+      },
+    ],
+  },
+  {
+    label: '代码编辑器',
+    value: 'code-edit',
+    children: [
+      {
+        label: '简单的代码编辑器',
+        value: 'code-edit',
+        describtion: '适用于简单的代码编辑器展示场景',
+        create_time: '2019-04-30 15:04',
+        updated_time: '2019-04-30 15:04',
+        disabled: true,
+      },
+    ],
+  },
+  {
+    label: '其它',
+    value: 'other',
+    children: [],
+  },
+];

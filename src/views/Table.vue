@@ -34,17 +34,17 @@
 </template>
 
 <script>
-import TableFirst from '@/examples/table/table-first/index.vue';
-import TableSecond from '@/examples/table/table-second/index.vue';
+// import TableFirst from '@/examples/table/table-first/index.vue';
+// import TableSecond from '@/examples/table/table-second/index.vue';
 import ShowConfig from '@/components/basic-widgets/show-config.vue';
 import { configShowUrls } from '@/plugins/constance.js';
 
 export default {
   name: 'table',
   components: {
-    TableFirst,
+    // TableFirst,
     ShowConfig,
-    TableSecond,
+    // TableSecond,
   },
 
   data() {

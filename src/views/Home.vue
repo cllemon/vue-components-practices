@@ -1,6 +1,4 @@
-
-
-  <template>
+<template>
   <div class="home">
     <section class="show-wraper-item">
       <div class="wraper-item-tips">

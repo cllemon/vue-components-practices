@@ -1,5 +1,6 @@
 /deep/ .CodeMirror {
   height: 480px;
+  height: 600px;
 }
 
 .show-wraper {
@@ -72,6 +73,15 @@
         color: $primary;
       }
     }
+  }
+}
+
+.notify-code {
+  width: 600px !important;
+  height: 600px;
+  padding: 0px 0px 10px 0px !important;
+  /deep/ .el-notification__closeBtn {
+    z-index: 1000000;
   }
 }
 

@@ -35,16 +35,16 @@
 </template>
 
 <script>
-import FormFirst from '@/examples/form/form-first/index.vue';
-import FormSecond from '@/examples/form/form-second/index.vue';
+// import FormFirst from '@/examples/form/form-first/index.vue';
+// import FormSecond from '@/examples/form/form-second/index.vue';
 import ShowConfig from '@/components/basic-widgets/show-config.vue';
 import { configShowUrls } from '@/plugins/constance.js';
 
 export default {
   name: 'no-form',
   components: {
-    FormFirst,
-    FormSecond,
+    // FormFirst,
+    // FormSecond,
     ShowConfig,
   },
 

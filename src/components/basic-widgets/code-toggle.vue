@@ -13,6 +13,7 @@
         <el-tab-pane label="业务代码"
                      name="vue">
           <slot name="vue"></slot>
+          {{MarkdownVue}}
         </el-tab-pane>
 
         <el-tab-pane label="配置项代码"
@@ -36,6 +37,13 @@ import 'highlight.js/styles/github.css';
 import 'highlight.js/styles/solarized-light.css';
 
 export default {
+  props: {
+    MarkdownVue: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+
   data() {
     return {
       visible: true,

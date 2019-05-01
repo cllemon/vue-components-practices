@@ -1,7 +1,7 @@
 <template>
   <codemirror v-model="code"
               :options="options"
-              class="live-edit"
+              class="live-code"
               ref="liveEdit">
   </codemirror>
 </template>
@@ -112,8 +112,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .CodeMirror {
-  height: 468px;
+.live-code {
+  width: 576px;
+  height: 576px;
+  /deep/ .CodeMirror {
+    height: 584px;
+  }
 }
 </style>
 

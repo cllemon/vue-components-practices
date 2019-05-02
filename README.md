@@ -21,19 +21,19 @@
 ### Project setup
 
 ```
-yarn install
+yarn || npm i
 ```
 
 #### Compiles and hot-reloads for development
 
 ```
-yarn run serve
+yarn serve || npm run serve
 ```
 
 #### Compiles and minifies for production
 
 ```
-yarn run build
+yarn build || npm run build
 ```
 
 #### Customize configuration

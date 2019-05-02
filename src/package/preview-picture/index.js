@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import { isArray } from 'lodash';
 import previewImageComponent from './index.vue';
 
 const Preview = Vue.extend(previewImageComponent);
@@ -10,7 +9,7 @@ let seed = 1;
 
 const previewImage = (list, index) => {
   let imageUrlList = [];
-  if (isArray(list)) {
+  if (Array.isArray(list)) {
     imageUrlList = list;
   } else {
     imageUrlList.push(list);

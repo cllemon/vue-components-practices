@@ -13,20 +13,27 @@
         <div class="tips__wraper">
           <div v-text="`${options.label}`"
                class="tips__title tips__title--bold" />
-          <div v-text="options.componentName"
-               class="tips__title" />
+          <el-tooltip class="item"
+                      effect="dark"
+                      content="所有组件均不会打成 NPM 包，仅供参考"
+                      placement="left">
+            <div v-text="options.componentName"
+                 class="tips__title" />
+          </el-tooltip>
           <el-button type="primary"
                      icon="el-icon-edit"
                      size="mini"
                      @click="showCode(options)">
             查看代码
           </el-button>
+
           <el-button type="primary"
                      icon="el-icon-document"
                      size="mini"
                      @click="showCode(options)">
             查看文档
           </el-button>
+
         </div>
         <div v-text="'模块说明'"
              class="tips__title tips__title--bold" />

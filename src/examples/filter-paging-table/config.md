@@ -1,3 +1,7 @@
+<h3 style="border-bottom:1px dashed #ccc; width: 570px; padding-bottom: 10px;">filter-paging-form 配置项代码</h3>
+
+<div style="background-color: #0c2a34; padding: 10px; border-radius: 4px;  width: 552px; overflow: scroll;">
+
 ```js
 import yourRequestMethod from 'service';
 
@@ -81,3 +85,5 @@ export const baseAssembler = (Vue) => ({
   },
 });
 ```
+
+</div>

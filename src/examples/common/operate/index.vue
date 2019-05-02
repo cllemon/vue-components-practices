@@ -1,10 +1,10 @@
 <template>
   <section class="operate">
-    <el-button v-for="(operate, index) in OPERATE_LIST"
+    <el-button v-for="(operate, index) in opreateList"
                :type="operate.type"
                :key="index"
                size="mini"
-               style="width: 30%;"
+               style="flex: 1;"
                @click="onOperate(operate)">
       {{operate.label}}
     </el-button>
@@ -15,9 +15,16 @@
 import { OPERATE_LIST } from '@/plugins/constance';
 
 export default {
+  props: {
+    list: {
+      type: Array,
+      default: () => OPERATE_LIST,
+    },
+  },
+
   data() {
     return {
-      OPERATE_LIST,
+      opreateList: this.list,
     };
   },
 

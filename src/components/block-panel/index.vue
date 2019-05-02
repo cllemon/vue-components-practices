@@ -9,7 +9,7 @@
              @click="onBlockOperate(item)">
       <img alt="component preview images"
            class="item__icon"
-           :src="require(`../../assets/images/${item.image_url || 'default'}.png`)">
+           :src="srcPath(item)">
       <div class="item__title">
         {{item.label}}
       </div>
@@ -45,6 +45,13 @@ export default {
       if (!item.disabled) {
         this.$emit('blockPreview', item);
       }
+    },
+
+    srcPath(item) {
+      if (item.image_url) {
+        return require(`@/examples/${item.value}/${item.image_url}.png`);
+      }
+      return require('@/assets/images/default.png');
     },
   },
 };

@@ -4,44 +4,45 @@
   <div class="table-column-images">
     <template v-for="(url, index) in list">
       <img :key="index"
-            class="table-column-images__item"
-            :src="url"
-            @click="showSelectedImage(index)">
+           class="table-column-images__item"
+           :src="url"
+           @click="showSelectedImage(index)">
     </template>
   </div>
 </template>
 
 <script>
-  import previewImage from '../preview-image/index.js';
-  export default {
-    componentName: 'table-column-images',
-    props: {
-      value: {
-        required: true,
-        default: () => []
-      }
-    },
+import previewImage from '@/package/preview-picture/index.js';
 
-    data() {
-      return {
-        list: this.value
-      }
+export default {
+  componentName: 'table-column-images',
+  props: {
+    value: {
+      required: true,
+      default: () => [],
     },
+  },
 
-    watch: {
-      value(val, oldVal) {
-        if (val !== oldVal) {
-          this.list = val;
-        }
-      }
-    },
+  data() {
+    return {
+      list: this.value,
+    };
+  },
 
-    methods: {
-      showSelectedImage(index) {
-        previewImage(this.list, index)
+  watch: {
+    value(val, oldVal) {
+      if (val !== oldVal) {
+        this.list = val;
       }
     },
-  }
+  },
+
+  methods: {
+    showSelectedImage(index) {
+      previewImage(this.list, index);
+    },
+  },
+};
 </script>
 
 <style lang="scss">

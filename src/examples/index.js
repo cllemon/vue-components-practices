@@ -7,6 +7,8 @@ import StaticForm from './static-form/index.vue';
 import DynamicForm from './dynamic-form/index.vue';
 import PureTable from './pure-table/index.vue';
 import FilterPagingTable from './filter-paging-table/index.vue';
+import TreeStructure from './tree-structure/index.vue';
+import PreviewPicture from './preview-picture/index.vue';
 
 export default {
   'table-column-images': TableColumnImages,
@@ -16,4 +18,6 @@ export default {
   'dynamic-form': DynamicForm,
   'pure-table': PureTable,
   'filter-paging-table': FilterPagingTable,
+  'tree-structure': TreeStructure,
+  'preview-picture': PreviewPicture,
 };

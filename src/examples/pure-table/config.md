@@ -1,62 +1,12 @@
-```js
+<h3 style="border-bottom:1px dashed #ccc; width: 570px; padding-bottom: 10px;">pure-table 配置项代码</h3>
 
+<div style="background-color: #0c2a34; padding: 10px; border-radius: 4px; width: 552px; overflow: scroll;">
+
+```jsx
+/**
+ * 自定义表格配置项代码
+ */
 import moment from 'moment';
-
-const list = [
-  {
-    id: 'id0001',
-    time: 1551778366013,
-    head_portrait: [],
-    name: '张三',
-    age: 18,
-  },
-  {
-    id: 'id0002',
-    time: 1551771366013,
-    head_portrait: [],
-    name: '张三1',
-    age: 19,
-  },
-  {
-    id: 'id0003',
-    time: 1551178366013,
-    head_portrait: [],
-    name: '张三2',
-    age: 20,
-  }
-]
-
-/**
- * 行操作 - 规则
- */
-const createOperatePageJump = (Vue, label = '操作 - 跳转') => {
-  return {
-    label: label,
-    method: (row) => {
-      Vue.$message({
-        showClose: true,
-        message: `${label}成功`,
-        type: 'success',
-      });
-    },
-  };
-};
-
-/**
- * 筛选不同行对应不同操作
- */
-const operateList = (Vue) => {
-  return (row) => {
-    const list = [
-      createOperatePageJump(Vue, '补卡')
-    ];
-    if (row.id === 'id0001') {
-      list.push(createOperatePageJump(Vue, '请假'));
-    }
-    return list;
-  };
-}
-
 export const tableConfig = (Vue) => {
   return {
     // el-table => props
@@ -129,4 +79,63 @@ export const tableConfig = (Vue) => {
   };
 };
 
+
+const list = [
+  {
+    id: 'id0001',
+    time: 1551778366013,
+    head_portrait: [],
+    name: '张三',
+    age: 18,
+  },
+  {
+    id: 'id0002',
+    time: 1551771366013,
+    head_portrait: [],
+    name: '张三1',
+    age: 19,
+  },
+  {
+    id: 'id0003',
+    time: 1551178366013,
+    head_portrait: [],
+    name: '张三2',
+    age: 20,
+  }
+]
+
+/**
+ * 行操作 - 规则
+ */
+const createOperatePageJump = (Vue, label = '操作 - 跳转') => {
+  return {
+    label: label,
+    method: (row) => {
+      Vue.$message({
+        showClose: true,
+        message: `${label}成功`,
+        type: 'success',
+      });
+    },
+  };
+};
+
+/**
+ * 筛选不同行对应不同操作
+ */
+const operateList = (Vue) => {
+  return (row) => {
+    const list = [
+      createOperatePageJump(Vue, '补卡')
+    ];
+    if (row.id === 'id0001') {
+      list.push(createOperatePageJump(Vue, '请假'));
+    }
+    return list;
+  };
+}
+
+
 ```
+
+</div>

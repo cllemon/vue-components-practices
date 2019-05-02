@@ -80,6 +80,7 @@
   width: 600px !important;
   height: 600px;
   padding: 0px 0px 10px 0px !important;
+  overflow: scroll !important;
   /deep/ .el-notification__closeBtn {
     z-index: 1000000;
   }

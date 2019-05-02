@@ -2,6 +2,8 @@
   <el-dialog :visible.sync="visible"
              :width="width"
              :before-close="onBeforeClose">
+    <span name="title"
+          class="dialog-title">{{options.value}}</span>
     <section class="dialog-wraper">
       <section class="dialog-wraper__component">
         <component :is="options.value"
@@ -9,9 +11,9 @@
       </section>
       <section class="dialog-wraper__tips">
         <div class="tips__wraper">
-          <div v-text="options.label"
+          <div v-text="`${options.label}`"
                class="tips__title tips__title--bold" />
-          <div v-text="options.value"
+          <div v-text="options.componentName"
                class="tips__title" />
           <el-button type="primary"
                      icon="el-icon-edit"
@@ -66,7 +68,7 @@ export default {
 
     showCode(options) {
       window.open(
-        `https://github.com/cllemon/vue-components-practices/edit/master/src/package/${
+        `https://github.com/cllemon/vue-components-practices/blob/master/src/package/${
           options.componentName
         }/index.vue`,
       );
@@ -85,16 +87,25 @@ export default {
 /deep/ .el-dialog__body {
   padding: 10px 20px 20px 20px;
 }
+.dialog-title {
+  position: absolute;
+  top: 9px;
+  color: #666;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+  font-size: 16px;
+}
 
 .dialog-wraper {
   display: flex;
   width: 100%;
   &__tips {
-    min-width: 300px;
+    width: 300px;
     margin-left: 30px;
     overflow: hidden;
     .tips__wraper {
-      height: 120px;
+      // height: 120px;
+      padding-bottom: 16px;
       border-bottom: 1px solid #d8d8d8;
       margin-bottom: 10px;
     }

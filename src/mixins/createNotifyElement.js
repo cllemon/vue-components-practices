@@ -1,9 +1,11 @@
+// import 'highlight.js/styles/monokai.css';
+// import 'highlight.js/styles/solarized-light.css';
+import 'highlight.js/styles/solarized-dark.css';
 import LiveEditPreview from '@/components/basic-widgets/live-edit-preview.vue';
 
 export default {
   data() {
     return {
-      options: {},
       Notification: null,
     };
   },
@@ -36,10 +38,8 @@ export default {
           },
         });
       }
-      return h('div', {}, [
-        h('h3', operate.label),
-        h('div', '待更新...做成直接解析 markdown 文档'),
-      ]);
+      const module = await import(`@/examples/${this.$options._componentTag}/${operate.value}.md`);
+      return h(module.default);
     },
 
     closeNotify() {

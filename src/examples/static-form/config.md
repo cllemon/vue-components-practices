@@ -1,6 +1,10 @@
-```js
+<h3 style="border-bottom:1px dashed #ccc; width: 570px; padding-bottom: 10px;">static-form 配置项代码</h3>
+
+<div style="background-color: #0c2a34; padding: 10px; border-radius: 4px;  width: 552px; overflow: scroll;">
+
+```jsx
 /**
- * 整体表单配置项
+ * 以下是 demo 整体表单配置项
  */
 export const formConfig = (Vue) => ({
   // 表单规则
@@ -51,7 +55,7 @@ export const formConfig = (Vue) => ({
       },
       // 表单项组件插槽
       // slot 支持数组和对象两种形式
-      // 这里的slot 是 el-form-item 下的插槽
+      // 这里的 slot 是 el-form-item 下的插槽
       // 本想可支持 Object | Array
       // 但是 Array 渲染多个插槽，虽然可提供此能力，而我们想提供的仅仅是一个插槽。
       // Array 会使配置变得臃肿，且使复杂度变高。
@@ -69,7 +73,7 @@ export const formConfig = (Vue) => ({
           change: (val) => {
             console.log('活动名称值改变结果：');
             console.log(val);
-            console.log('Vue实例：');
+            console.log('Vue 实例：');
             console.log(Vue);
           },
         },
@@ -316,3 +320,5 @@ export const formConfig = (Vue) => ({
   ],
 });
 ```
+
+</div>

@@ -1,3 +1,7 @@
+<h3 style="border-bottom:1px dashed #ccc; width: 570px; padding-bottom: 10px;">dynamic-form 配置项代码</h3>
+
+<div style="background-color: #0c2a34; padding: 10px; border-radius: 4px;  width: 552px; overflow: scroll;">
+
 ```js
 /**
  * 整体表单配置项
@@ -305,3 +309,5 @@ export const formConfig = (Vue) => ({
 //   callback();
 // };
 ```
+
+</div>

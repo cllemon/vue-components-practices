@@ -4,6 +4,7 @@ import TablePanel from './table-panel/index.vue';
 import BaseAssembler from './base-assembler/index.vue';
 import PaginationPanel from './pagination-panel/index.vue';
 import FilterPanel from './filter-panel/index.vue';
+import Tree from './tree/index.vue';
 
 export default {
   'no-form': NoForm,
@@ -12,4 +13,5 @@ export default {
   'base-assembler': BaseAssembler,
   'pagination-panel': PaginationPanel,
   'filter-panel': FilterPanel,
+  Tree: Tree,
 };

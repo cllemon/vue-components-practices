@@ -128,8 +128,8 @@ export default {
     width: 60%;
     flex: 1;
     overflow: hidden;
-    background: #fff;
-    box-shadow: $basic-box-shadow;
+    // background: #fff;
+    // box-shadow: $basic-box-shadow;
     border-radius: 4px;
     padding: 10px;
   }

@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .operate {
   width: 94%;
-  margin: 10px;
+  margin: 20px 10px 0 10px;
   display: flex;
   justify-content: space-around;
 }

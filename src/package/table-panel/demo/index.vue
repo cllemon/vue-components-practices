@@ -15,16 +15,24 @@
 
 <script>
 import { executeFunctionBlock } from '@/plugins/utils.js';
-import { tableConfig } from './index.js';
 import createNotifyElement from '@/mixins/createNotifyElement';
+import { tableConfig } from './index.js';
+import TablePanel from '../index.vue';
+
+const PATH = 'table-panel/demo';
 
 export default {
   name: 'pure-table',
+
+  components: {
+    TablePanel,
+  },
 
   mixins: [createNotifyElement],
 
   data() {
     return {
+      PATH,
       config: executeFunctionBlock(tableConfig)(this),
       configStr: tableConfig,
       errorStr: null,

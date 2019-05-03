@@ -19,13 +19,18 @@
 import { OPERATE_LIST } from '@/plugins/constance';
 import createNotifyElement from '@/mixins/createNotifyElement.js';
 import IMAGE_LIST from './db.js';
-import previewPicture from '@/package/preview-picture/index.js';
+import previewPicture from '../index.js';
+
+const PATH = 'preview-picture/demo';
 
 export default {
+  name: 'preview-picture',
+
   mixins: [createNotifyElement],
 
   data() {
     return {
+      PATH,
       list: new Array(OPERATE_LIST[1]),
       imageList: IMAGE_LIST,
     };

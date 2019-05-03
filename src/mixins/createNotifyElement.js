@@ -38,7 +38,9 @@ export default {
           },
         });
       }
-      const module = await import(`@/examples/${this.$options._componentTag}/${operate.value}.md`);
+      //变更目录及例子与组件命名不统一故注释掉
+      // `@/package/${this.$options._componentTag}/demo/${operate.value}.md`
+      const module = await import(`@/package/${this.PATH}/${operate.value}.md`);
       return h(module.default);
     },
 

@@ -20,12 +20,22 @@ import { executeFunctionBlock } from '@/plugins/utils.js';
 import { formConfig } from './index.js';
 import emitter from '@/mixins/emitter';
 import createNotifyElement from '@/mixins/createNotifyElement';
+import NoForm from '../../index.vue';
+
+const PATH = 'no-form/demo/dynamic-form';
 
 export default {
+  name: 'dynamic-form',
+
+  components: {
+    NoForm,
+  },
+
   mixins: [emitter, createNotifyElement],
 
   data() {
     return {
+      PATH,
       config: executeFunctionBlock(formConfig)(this),
       configStr: formConfig,
       errorStr: null,

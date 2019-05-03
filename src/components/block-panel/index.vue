@@ -48,8 +48,8 @@ export default {
     },
 
     srcPath(item) {
-      if (item.image_url) {
-        return require(`@/examples/${item.value}/${item.image_url}.png`);
+      if (!item.disabled) {
+        return require(`@/package/${item.componentName}/demo/${item.path || item.value}.png`);
       }
       return require('@/assets/images/default.png');
     },

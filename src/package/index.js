@@ -1,17 +1,25 @@
-import DynamicSelect from './dynamic-select/index.vue';
-import NoForm from './no-form/index.vue';
-import TablePanel from './table-panel/index.vue';
-import BaseAssembler from './base-assembler/index.vue';
-import PaginationPanel from './pagination-panel/index.vue';
-import FilterPanel from './filter-panel/index.vue';
-import Tree from './tree/index.vue';
+/** 例子组件所需要用到的公用组件 */
+import DynamicSelect from '@/components/dynamic-select/index.vue'; // 纯示例(模拟一种场景)
+import Operate from '@/components/operate/index.vue';
+import TableColumnImages from '@/components/table-column-images/index.vue';
+
+/** 全局注册例子组件 - 服务于根据数据渲染动态组件 */
+import StaticForm from './no-form/demo/static-form/index.vue';
+import DynamicForm from './no-form/demo/dynamic-form/index.vue';
+import PureTable from './table-panel/demo/index.vue';
+import FilterPagingTable from './base-assembler/demo/index.vue';
+import TreeStructure from './tree/demo/index.vue';
+import PreviewPicture from './preview-picture/demo/index.vue';
 
 export default {
-  'no-form': NoForm,
   'dynamic-select': DynamicSelect,
-  'table-panel': TablePanel,
-  'base-assembler': BaseAssembler,
-  'pagination-panel': PaginationPanel,
-  'filter-panel': FilterPanel,
-  Tree: Tree,
+  'table-column-images': TableColumnImages,
+  Operate: Operate,
+
+  'static-form': StaticForm,
+  'dynamic-form': DynamicForm,
+  'pure-table': PureTable,
+  'filter-paging-table': FilterPagingTable,
+  'tree-structure': TreeStructure,
+  'preview-picture': PreviewPicture,
 };

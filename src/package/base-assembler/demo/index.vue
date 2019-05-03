@@ -5,27 +5,38 @@
                class="form-container-error">
         {{ errorStr }}
       </section>
-      <no-form v-model="config"
-               ref="noForm"
-               v-else>
-      </no-form>
+      <!-- 核心代码 -->
+      <base-assembler v-else
+                      :config="config">
+      </base-assembler>
     </div>
     <Operate @operate="tryIt" />
+
   </div>
 </template>
 
 <script>
 import { executeFunctionBlock } from '@/plugins/utils.js';
-import { formConfig } from './index.js';
-import createNotifyElement from '@/mixins/createNotifyElement.js';
+import createNotifyElement from '@/mixins/createNotifyElement';
+import { baseAssemblerConfig } from './index.js';
+import BaseAssembler from '../index.vue';
+
+const PATH = 'base-assembler/demo';
 
 export default {
+  name: 'filter-paging-table',
+
+  components: {
+    BaseAssembler,
+  },
+
   mixins: [createNotifyElement],
 
   data() {
     return {
-      config: executeFunctionBlock(formConfig)(this),
-      configStr: formConfig,
+      PATH,
+      config: executeFunctionBlock(baseAssemblerConfig),
+      configStr: baseAssemblerConfig,
       errorStr: null,
     };
   },
@@ -37,14 +48,10 @@ export default {
     configStr(val, oldVal) {
       try {
         if (val !== oldVal) {
-          const options = executeFunctionBlock(val)(this);
+          const options = executeFunctionBlock(val);
           this.config = options;
+          console.log(options);
           this.errorStr = null;
-          if (this.$refs.noForm && this.$refs.noForm.$children && this.$refs.noForm.$children[0]) {
-            setTimeout(() => {
-              this.$refs.noForm.$children[0].clearValidate();
-            }, 10);
-          }
         }
       } catch (error) {
         this.errorStr = error.toString();
@@ -53,5 +60,4 @@ export default {
   },
 };
 </script>
-
 

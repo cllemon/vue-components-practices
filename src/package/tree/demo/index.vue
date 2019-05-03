@@ -13,12 +13,22 @@
 import AREA from './area';
 import { OPERATE_LIST } from '@/plugins/constance';
 import createNotifyElement from '@/mixins/createNotifyElement.js';
+import Tree from '../index.vue';
+
+const PATH = 'tree/demo';
 
 export default {
+  name: 'tree-structure',
+
+  components: {
+    Tree,
+  },
+
   mixins: [createNotifyElement],
 
   data() {
     return {
+      PATH,
       area: AREA,
       list: new Array(OPERATE_LIST[1]),
     };

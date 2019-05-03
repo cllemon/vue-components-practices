@@ -6,7 +6,6 @@ export const classification = [
       {
         label: '配置化生成 - 纯表格',
         value: 'pure-table',
-        image_url: 'pure-table',
         componentName: 'table-panel',
         describtion: '适用于简单的自定义配置化生成表格展示场景',
         create_time: '2019-04-30 15:04',
@@ -16,6 +15,7 @@ export const classification = [
       {
         label: '配置化生成 - 可筛选表格',
         value: 'filter-table',
+        componentName: '',
         describtion: '适用于自定义配置化生成可筛选表格展示场景',
         create_time: '2019-04-30 15:04',
         updated_time: '2019-04-30 15:04',
@@ -24,7 +24,6 @@ export const classification = [
       {
         label: '配置化生成 - 可筛选分页表格',
         value: 'filter-paging-table',
-        image_url: 'filter-paging-table',
         componentName: 'base-assembler',
         describtion: '适用于自定义配置化生成可筛选分页为一体的表格展示场景',
         create_time: '2019-04-30 15:04',
@@ -41,7 +40,7 @@ export const classification = [
         label: '配置化生成 - 静态表单',
         value: 'static-form',
         componentName: 'no-form',
-        image_url: 'static-form',
+        path: 'static-form/static-form',
         describtion: '适用于简单的自定义配置化生成表单的展示场景',
         create_time: '2019-04-30 15:04',
         updated_time: '2019-04-30 15:04',
@@ -50,7 +49,7 @@ export const classification = [
       {
         label: '配置化生成 - 动态表单',
         value: 'dynamic-form',
-        image_url: 'dynamic-form',
+        path: 'dynamic-form/dynamic-form',
         componentName: 'no-form',
         describtion: '适用于自定义配置化生成复杂动态表单的展示场景',
         create_time: '2019-04-30 15:04',
@@ -58,8 +57,9 @@ export const classification = [
         disabled: false,
       },
       {
-        label: 'dynamic-select',
+        label: '动态选择器',
         value: 'dynamic-select',
+        componentName: 'select',
         describtion: '适用于自定义配置化生成复杂动态表单的展示场景',
         create_time: '2019-04-30 15:04',
         updated_time: '2019-04-30 15:04',
@@ -69,12 +69,11 @@ export const classification = [
   },
   {
     label: '信息展示',
-    value: 'form',
+    value: 'information',
     children: [
       {
         label: '图片预览',
         value: 'preview-picture',
-        image_url: 'preview-picture',
         componentName: 'preview-picture',
         describtion: '适用于简单的图片预览的展示场景',
         create_time: '2019-04-30 15:04',
@@ -84,7 +83,6 @@ export const classification = [
       {
         label: '树结构展示',
         value: 'tree-structure',
-        image_url: 'tree-structure',
         componentName: 'tree',
         describtion: '适用于简单可伸缩折叠树结构展示的展示场景',
         create_time: '2019-05-02 18:34',
@@ -100,6 +98,7 @@ export const classification = [
       {
         label: '简单的代码编辑器',
         value: 'code-edit',
+        componentName: '',
         describtion: '适用于简单的代码编辑器展示场景',
         create_time: '2019-04-30 15:04',
         updated_time: '2019-04-30 15:04',

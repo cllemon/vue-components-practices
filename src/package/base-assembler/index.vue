@@ -17,17 +17,17 @@
 </template>
 
 <script>
-// import filterPanel from '../filter-panel';
-// import tablePanel from '../table-panel';
-// import paginationPanel from '../pagination-panel';
+import FilterPanel from './filter-panel/index';
+import TablePanel from '../table-panel/index';
+import PaginationPanel from './pagination-panel/index';
 
 export default {
   componentName: 'base-assembler',
-  // components: {
-  //   filterPanel,
-  //   tablePanel,
-  //   paginationPanel,
-  // },
+  components: {
+    FilterPanel,
+    TablePanel,
+    PaginationPanel,
+  },
 
   props: {
     config: {

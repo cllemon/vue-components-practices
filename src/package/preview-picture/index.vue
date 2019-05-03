@@ -40,6 +40,8 @@
 
 <script>
 export default {
+  name: 'preview-picture',
+
   data() {
     return {
       visible: false,

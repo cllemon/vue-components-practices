@@ -5,28 +5,37 @@
                class="form-container-error">
         {{ errorStr }}
       </section>
-      <!-- 核心代码 -->
-      <base-assembler v-else
-                      :config="config">
-      </base-assembler>
+      <no-form v-model="config"
+               ref="noForm"
+               v-else>
+      </no-form>
     </div>
     <Operate @operate="tryIt" />
-
   </div>
 </template>
 
 <script>
 import { executeFunctionBlock } from '@/plugins/utils.js';
-import createNotifyElement from '@/mixins/createNotifyElement';
-import { baseAssemblerConfig } from './index.js';
+import { formConfig } from './index.js';
+import createNotifyElement from '@/mixins/createNotifyElement.js';
+import NoForm from '../../index.vue';
+
+const PATH = 'no-form/demo/static-form';
 
 export default {
+  name: 'static-form',
+
+  components: {
+    NoForm,
+  },
+
   mixins: [createNotifyElement],
 
   data() {
     return {
-      config: executeFunctionBlock(baseAssemblerConfig),
-      configStr: baseAssemblerConfig,
+      PATH,
+      config: executeFunctionBlock(formConfig)(this),
+      configStr: formConfig,
       errorStr: null,
     };
   },
@@ -38,10 +47,14 @@ export default {
     configStr(val, oldVal) {
       try {
         if (val !== oldVal) {
-          const options = executeFunctionBlock(val);
+          const options = executeFunctionBlock(val)(this);
           this.config = options;
-          console.log(options);
           this.errorStr = null;
+          if (this.$refs.noForm && this.$refs.noForm.$children && this.$refs.noForm.$children[0]) {
+            setTimeout(() => {
+              this.$refs.noForm.$children[0].clearValidate();
+            }, 10);
+          }
         }
       } catch (error) {
         this.errorStr = error.toString();
@@ -50,4 +63,5 @@ export default {
   },
 };
 </script>
+
 

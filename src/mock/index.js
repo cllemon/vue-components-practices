@@ -17,6 +17,6 @@ export const getList = () => {
   return new Promise((resolved) => {
     setTimeout(() => {
       resolved(getClassification());
-    }, 400);
+    }, 2000);
   });
 };

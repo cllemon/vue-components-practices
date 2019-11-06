@@ -1,6 +1,7 @@
 <template>
+  <!-- v-loading="loading" -->
   <section class="dashboard"
-           v-loading="loading">
+           v-skeleton:TmplFirst="loading">
     <Classification :list="classification"
                     @pull="onPull" />
     <block-panel v-model="blocks"
@@ -14,12 +15,14 @@ import Classification from '../classification/index.vue';
 import BlockPanel from '../block-panel/index.vue';
 import PreviewPanel from '../preview-panel/index';
 import { getList } from '../../mock/index.js';
+import TmplFirst from '../../directive/examples/tmpl-first';
 
 export default {
   components: {
     Classification,
     BlockPanel,
     PreviewPanel,
+    TmplFirst,
   },
 
   data() {

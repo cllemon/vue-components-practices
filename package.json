@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "report:dev": "vue-cli-service inspect --mode development >> webpack.dev.conf.js",
+    "report:prod": "vue-cli-service inspect --mode production >> webpack.prod.conf.js"
   },
   "dependencies": {
     "element-ui": "^2.4.5",

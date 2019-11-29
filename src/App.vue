@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <transition name="el-fade-in"
-                mode="out-in">
+    <transition name="el-fade-in" mode="out-in">
       <Dashboard></Dashboard>
       <!-- <router-view></router-view> -->
     </transition>

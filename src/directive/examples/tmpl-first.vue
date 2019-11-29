@@ -4,15 +4,11 @@
       <Texts :lines="2" />
     </div>
     <div class="content">
-      <div v-for="(item, index) in list"
-           :key="index"
-           class="card">
-        <Rectangular :radius="10"
-                     style="width: 300px; height: 230px;" />
+      <div v-for="(item, index) in list" :key="index" class="card">
+        <Rectangular :radius="10" style="width: 300px; height: 230px;" />
         <Texts :lines="1" />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -41,10 +37,11 @@ export default {
   }
   .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    padding-left: 20px;
     .card {
-      margin: 20px;
+      margin: 18px 70px 18px 18px;
       width: 300px;
       height: 240px;
     }

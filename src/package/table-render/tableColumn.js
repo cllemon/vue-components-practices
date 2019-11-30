@@ -39,14 +39,24 @@ function defaultFormatter(row, column, val, index) {
 /**
  * @desc 包装 formatter
  * @param {Object} column 列配置信息
+ *
  * @returns {Function} formatter
+ *
+ * @tips enumerations & formatter 同时传入， 先去映射，若存在值，传入用户自定 formatter,
+ *       最后，无论值是否存在，都需要传入默认格式化函数，过滤一遍。
  */
 function wraperFormatter(columnInfo = {}) {
-  const { formatter } = columnInfo;
-  if (!formatter) return defaultFormatter;
+  const { formatter, enumerations } = columnInfo;
+  if (!formatter && !enumerations) return defaultFormatter;
   return function (row, column, val, index) {
-    const useVal = formatter(row, column, val, index);
-    return defaultFormatter(row, column, useVal, index);
+    if (judgeType(enumerations, 'array') && enumerations.length) {
+      const { label } = (enumerations.filter(({ value }) => value === val)[0] || {})
+      val = label;
+    }
+    if (val && judgeType(formatter, 'function')) {
+      val = formatter(row, column, val, index);
+    }
+    return defaultFormatter(row, column, val, index);
   }
 }
 

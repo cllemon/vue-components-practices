@@ -21,6 +21,26 @@ function computedOperateLabelLength(operates) {
 }
 
 /**
+ * @desc 预处理处理操作下发属性
+ *
+ * @param {*} operate
+ * @param {*} row
+ * @param {*} column
+ */
+function handlerOperate(operate, row, column) {
+  let operateProps = { ...operate };
+  const { hidden, disabled } = operate;
+  if (hidden && judgeType(hidden, 'function')) {
+    operateProps.hidden = hidden(row, column);
+  }
+  if (disabled && judgeType(disabled, 'function')) {
+    operateProps.disabled = disabled(row, column);
+  }
+  delete operateProps.method;
+  return operateProps;
+}
+
+/**
  * @desc 生成一般操作列
  * @param {Function} h createElement
  * @param {Array} operates 操作配置表
@@ -35,11 +55,12 @@ function genrateOperatesColumn(h, operates) {
     },
     scopedSlots: {
       default: ({ row, column }) => operates.map(operate => {
+        const finalOperateProps = handlerOperate(operate, row, column);
+        if (finalOperateProps.hidden) return null;
         return h(Button, {
           props: {
             type: 'text',
-            ...operate,
-            method: null
+            ...finalOperateProps
           },
           on: {
             click: (e) => {
@@ -131,3 +152,4 @@ export default {
     );
   }
 }
+
